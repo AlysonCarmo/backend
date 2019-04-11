@@ -10,7 +10,7 @@ const app = express();
 // defini que o server usa json
 app.use(express.json());
 
-app.use(cors);
+app.use(cors());
 
 const server =  require("http").Server(app);
 const io = require("socket.io")(server);
