@@ -29,7 +29,7 @@ mogoose.connect("mongodb+srv://oministack:oministack@cluster0-sghxt.mongodb.net/
 
 app.use((req, res, next) =>{
     req.io = io;
-    return next;
+    return next();
 })
 
 // definindo que o server recebe arquivos
