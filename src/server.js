@@ -10,7 +10,9 @@ const app = express();
 // defini que o server usa json
 app.use(express.json());
 
+// permite conexão externa de qualquer outro dominio CORS
 app.use(cors());
+
 
 const server =  require("http").Server(app);
 const io = require("socket.io")(server);
@@ -29,7 +31,7 @@ mogoose.connect("mongodb+srv://oministack:oministack@cluster0-sghxt.mongodb.net/
 
 app.use((req, res, next) =>{
     req.io = io;
-    return next();
+    return next()
 })
 
 // definindo que o server recebe arquivos

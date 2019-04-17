@@ -5,7 +5,7 @@ const Box =  require("../models/Box");
 
 class FileController{
     async store(req, res){
-       //capturando um box de um id de bos já criado  
+       //capturando um box de um id de box já criado  
        const box = await Box.findById(req.params.id);
        // criando um file dos parametros passados na req
        const file =  await File.create({
@@ -17,7 +17,7 @@ class FileController{
 
        await box.save(); // da um save das informações da box await(async)
        
-       req.oi.socktes.in(box_id).emit("file", file);
+       req.io.sockets.in(box._id).emit("file", file);
 
        return res.json(file); // retorna via json o informações do file criado pela requisição
     };
