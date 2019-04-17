@@ -6,12 +6,12 @@ const crypto = require('crypto');
 
 module.exports = {
    // diretorio do projeto resposndavel por gravar os arquivos do upload 
-   dest: "C:\\Users\\Alyson\\week-6\\backend\\tmp", //path.resolve(__dirname, "..","..","tmp"),
+   dest: path.resolve(__dirname, "..","..","tmp"), //path.resolve(__dirname, "..","..","tmp"),
    // tipo do multer - diskStorage =  Disco
    storage: multer.diskStorage({
        destination:(req, file, cb)=>{
            // destino do arquivo
-          cb(null, "C:\\Users\\Alyson\\week-6\\backend\\tmp" );
+          cb(null, path.resolve(__dirname, "..","..","tmp") );
           
        },
        filename: (req, file, cb) =>{
